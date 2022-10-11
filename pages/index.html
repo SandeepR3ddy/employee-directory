@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="../styles/styles.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/e6a3f32f6b.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+   <header>
+      <span class="logo-and-name">
+         <img id="logo" src="../assets/saketa-logo.svg" alt="SAKETA">
+      </span>
+
+      <div class="heading">
+         <div id="employee-directory-heading">Employee Directory</div>
+         <div id="description-directory">The Ultimate People Directory Experience</div>
+      </div>
+
+      <div class="welcome-outer">
+         <div id="welcome">Welcome,</div>
+         <span id = "name">Sandeep</span>
+         <img class = "employee-image2" src = "../assets/6.jpg">
+      </div>
+   </header>
+   <div class="container">
+      <div class="filters">
+         <div>
+            <div class="departments" style="color: #373736; font-weight: 600;">Departments</div>
+            <div class="department-list"></div>
+         </div>
+         <div>
+            <div class="offices" style="color: #373736; font-weight: 600;">Offices</div>
+            <div class="offices-list"></div>
+         </div>
+         <div>
+            <div class="job-titles" style="color: #373736; font-weight: 600;">Job Titles</div>
+            <div class="job-titles-list"></div>
+         </div>
+      </div>
+      <i class="fa-solid fa-bars fa-2x humburger"></i>
+      <div class="whole-content">
+
+         <div class="name-filters">
+            <div class="alphabet-filters">
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">A</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">B</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">C</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">D</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">E</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">F</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">G</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">H</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">I</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">J</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">K</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">L</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">M</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">N</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">O</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">P</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">Q</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">R</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">S</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">T</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">U</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">V</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">W</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">X</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">Y</div>
+               </a>
+               <a href="#" class="alphabet">
+                  <div class="alphabet-box">Z</div>
+               </a>
+
+            </div>
+            <div class="utilities">
+               <div class="search-outer">
+                  <div class="search">
+                     <div id="search-text">Search</div>
+                     <span class="fa fa-search search-icon"></span>
+                     <input class="search-box" type="search" placeholder="Enter any keyword">
+                  </div>
+                  <button class="clear-button">
+                     Clear
+                  </button>
+               </div>
+               <div class="filter-by-preffered-name">
+                  <span>Filter by</span>
+                  <select name="filters" id="filters">
+                     <option value="Preferred Name">Preferred Name</option>
+                     <option value="First Name">First Name</option>
+                     <option value="Last Name">Last Name</option>
+                  </select>
+               </div>
+               <div class="add-employee">
+                  <button id="add-employee">Add Employee</button>
+                  <div class="modal">
+                     <div class="modal-content">
+                         <span class="close-button">×</span>
+                         <form class="modal-container">
+                           <h3>Employee Form</h3>
+                           <label for="fname"><strong>First Name</strong></label>
+                           <input type="text" placeholder="Enter First Name" class="fname modal-input" required>
+                           <label for="lname"><strong>Last Name</strong></label>
+                           <input type="text" placeholder="Enter Last Name" class="lname modal-input" required>
+                           <label for="pname"><strong>Preferred Name</strong></label>
+                           <input type="text" placeholder="Enter Preferred Name" class="pname modal-input" required>
+                           <label for="designation"><strong>Designation</strong></label>
+                           <input type="text" placeholder="Enter Designation" class="designation modal-input" required>
+                           <label for="department"><strong>Department</strong></label>
+                           <input type="text" placeholder="Enter Department" class="department modal-input" required>
+                           <label for="profile"><strong>Profile</strong></label>
+                           <input type="file" placeholder="Enter Photo" class="profile modal-input" required>
+                           </form>
+                           <div style="display: flex;
+                           justify-content: center;
+                           align-items: center;">
+                         <button type="submit" class="form-submit">Submit</button>
+                         </div>
+                     </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+         <div class="employee-cards-outer">
+
+         </div>
+
+      </div>
+   </div>
+   <script src="../scripts/script.js"></script>
+</body>
+</html>
