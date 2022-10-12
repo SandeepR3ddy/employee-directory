@@ -26,7 +26,7 @@
       </div>
 
       <div class="welcome-outer">
-         <div id="welcome">Welcome,</div>
+         <div id="welcome" style="margin-right: 0.25rem;">Welcome,</div>
          <span id = "name">Sandeep</span>
          <img class = "employee-image2" src = "../assets/6.jpg">
       </div>
@@ -155,7 +155,7 @@
                   <div class="modal">
                      <div class="modal-content">
                          <span class="close-button">×</span>
-                         <form class="modal-container">
+                         <br class="modal-container">
                            <h3>Employee Form</h3>
                            <label for="fname"><strong>First Name</strong></label>
                            <input type="text" placeholder="Enter First Name" class="fname modal-input" required>
@@ -165,8 +165,16 @@
                            <input type="text" placeholder="Enter Preferred Name" class="pname modal-input" required>
                            <label for="designation"><strong>Designation</strong></label>
                            <input type="text" placeholder="Enter Designation" class="designation modal-input" required>
+                           <div style= "margin-top: 0.5rem; margin-bottom: 1rem;"> 
                            <label for="department"><strong>Department</strong></label>
-                           <input type="text" placeholder="Enter Department" class="department modal-input" required>
+                           <!-- <input type="text" placeholder="Enter Department" class="department modal-input" required> -->
+                           <select name="" class ="department">
+                              <option value="IT">IT</option>
+                              <option value="HR">HR</option>
+                              <option value="MD">MD</option>
+                              <option value="Sales">Sales</option>
+                           </select>
+                        </div>
                            <label for="profile"><strong>Profile</strong></label>
                            <input type="file" placeholder="Enter Photo" class="profile modal-input" required>
                            </form>

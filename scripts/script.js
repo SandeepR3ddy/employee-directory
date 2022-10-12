@@ -94,6 +94,7 @@ let matchcards = [
 ];
 
 if(localStorage.getItem("matchcards") == null){
+
 localStorage.setItem("matchcards",JSON.stringify(matchcards));
 }
 
@@ -123,9 +124,12 @@ let employeeCardsArray = matchcardsfromlocalstorage.map((card) => {
  </div>`);
 
 }).join(' ');
-  
 
-document.querySelector(".employee-cards-outer").innerHTML = employeeCardsArray;
+window.addEventListener("load", function(e){   
+
+employeeCards.innerHTML = employeeCardsArray;
+
+});
 
 const input = document.querySelector(".search-box");
 
@@ -419,6 +423,9 @@ function closeModal() {
 trigger.addEventListener("click", addModal);
 closeButton.addEventListener("click", closeModal);
 
+
+submitButton.addEventListener("click", closeModal);
+
 var form = document.querySelector(".modal-container");
 
 var fname = document.querySelector(".fname");
@@ -426,27 +433,63 @@ var lname = document.querySelector(".lname");
 var pname = document.querySelector(".pname");
 var desig = document.querySelector(".designation");
 var dept = document.querySelector(".department");
+var prof = document.querySelector(".profile");
 
+var deptvalue = "";
+
+dept.addEventListener("change", function(e){ 
+
+    deptvalue = e.target.value;
+
+});
+
+
+let url = "";
+
+prof.addEventListener("change", function(e) {   
+
+    const reader = new FileReader();
+
+
+    reader.addEventListener("load", () => {
+
+        url = reader.result;
+
+    });
+
+    reader.readAsDataURL(this.files[0]);
+     
+     
+});
 
 submitButton.addEventListener("click", function(e) {   
+    
+    if(deptvalue == "") {
      
-    if(fname.value == "" || lname.value == "" || pname.value == "" || desig.value == "" || dept.value == "")
+        deptvalue = "IT";
+
+    }
+
+    if(fname.value == "" || lname.value == "" || pname.value == "" || desig.value == "" || deptvalue == "" || prof.value == "")
     {
         alert("Please Fill all the fields");
     }
     else
     {
+
+        matchcards = JSON.parse(localStorage.getItem("matchcards"));
+
         matchcards.push(
             {
                 "FirstName" : fname.value,
                 "LastName" : lname.value,
                 "Designation" : desig.value,
                 "PreferredName": pname.value,
-                "Department" : dept.value,
-                "src" : "../assets/1.jpg"
+                "Department" : deptvalue,
+                "src" : url
             });
  
-            
+            localStorage.clear();
              
             localStorage.setItem("matchcards", JSON.stringify(matchcards));
             
@@ -455,9 +498,8 @@ submitButton.addEventListener("click", function(e) {
         lname.value = ""; 
         pname.value = "";  
         desig.value = ""; 
-        dept.value = "";
-        
-       submitButton.addEventListener("click", closeModal);
+        dept.value = "IT";
+        prof.value = "";
       
        employeeCardsArray = JSON.parse(localStorage.getItem("matchcards")).map((card) => {
    
@@ -467,7 +509,7 @@ submitButton.addEventListener("click", function(e) {
               
         <img class="employee-image" src= ${card.src}>
         <div class="employee-details">
-           <div class="employee-name">${card.FirstName}${card.LastName}</div>
+           <div class="employee-name">${card.FirstName} ${card.LastName}</div>
            <div class="designation">${card.Designation}</div>
            <div class="department-name">${card.Department}</div>
            <div class="icons">

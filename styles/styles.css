@@ -262,13 +262,6 @@ header
   font-size: 0.8rem;
 }
 
-#filters{
-    padding: 0.5rem;
-    margin-left: 0.5rem;
-    font-weight: 600;
-    background-color: #e9e8e8;
-
-}
 .modal {
     position: fixed;
     left: 0;
@@ -520,4 +513,19 @@ h3 {
 
   }
     
-  
+  #filters, .department{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 3px;
+    border-radius: 2px;
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    padding-right: 1.5rem;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    background-color: #e9e8e8;
+    outline: none;
+}
