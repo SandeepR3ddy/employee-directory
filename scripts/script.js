@@ -95,6 +95,7 @@ let matchcards = [
 
 if(localStorage.getItem("matchcards") == null){
 
+    // localStorage.clear();
 localStorage.setItem("matchcards",JSON.stringify(matchcards));
 }
 
@@ -437,9 +438,17 @@ var prof = document.querySelector(".profile");
 
 var deptvalue = "";
 
+var pnamevalue = "";
+
 dept.addEventListener("change", function(e){ 
 
     deptvalue = e.target.value;
+
+});
+
+pname.addEventListener("change", function(e){ 
+
+    pnamevalue = e.target.value;
 
 });
 
@@ -470,7 +479,7 @@ submitButton.addEventListener("click", function(e) {
 
     }
 
-    if(fname.value == "" || lname.value == "" || pname.value == "" || desig.value == "" || deptvalue == "" || prof.value == "")
+    if(fname.value == "" || lname.value == "" || pnamevalue == "" || desig.value == "" || deptvalue == "" || prof.value == "")
     {
         alert("Please Fill all the fields");
     }
@@ -481,11 +490,11 @@ submitButton.addEventListener("click", function(e) {
 
         matchcards.push(
             {
-                "FirstName" : fname.value,
+                "FirstName" : fname.value + " ",
                 "LastName" : lname.value,
                 "Designation" : desig.value,
-                "PreferredName": pname.value,
-                "Department" : deptvalue,
+                "PreferredName": pnamevalue == "First Name" ? fname.value : lname.value,
+                "Department" : deptvalue + " Department",
                 "src" : url
             });
  
@@ -509,7 +518,7 @@ submitButton.addEventListener("click", function(e) {
               
         <img class="employee-image" src= ${card.src}>
         <div class="employee-details">
-           <div class="employee-name">${card.FirstName} ${card.LastName}</div>
+           <div class="employee-name">${card.FirstName}${card.LastName}</div>
            <div class="designation">${card.Designation}</div>
            <div class="department-name">${card.Department}</div>
            <div class="icons">

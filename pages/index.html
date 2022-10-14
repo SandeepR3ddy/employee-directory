@@ -161,11 +161,16 @@
                            <input type="text" placeholder="Enter First Name" class="fname modal-input" required>
                            <label for="lname"><strong>Last Name</strong></label>
                            <input type="text" placeholder="Enter Last Name" class="lname modal-input" required>
-                           <label for="pname"><strong>Preferred Name</strong></label>
-                           <input type="text" placeholder="Enter Preferred Name" class="pname modal-input" required>
+                           <div style= "margin-top: 1rem; margin-bottom: 1rem;"> 
+                              <label for="pname"><strong>Preferred Name</strong></label>
+                               <select name="" class ="pname">
+                              <option value="First Name">First Name</option>
+                              <option value="Last Name">Last Name</option>
+                           </select>
+                           </div>
                            <label for="designation"><strong>Designation</strong></label>
                            <input type="text" placeholder="Enter Designation" class="designation modal-input" required>
-                           <div style= "margin-top: 0.5rem; margin-bottom: 1rem;"> 
+                           <div style= "margin-top: 1rem; margin-bottom: 1rem;"> 
                            <label for="department"><strong>Department</strong></label>
                            <!-- <input type="text" placeholder="Enter Department" class="department modal-input" required> -->
                            <select name="" class ="department">
@@ -174,7 +179,7 @@
                               <option value="MD">MD</option>
                               <option value="Sales">Sales</option>
                            </select>
-                        </div>
+                           </div>
                            <label for="profile"><strong>Profile</strong></label>
                            <input type="file" placeholder="Enter Photo" class="profile modal-input" required>
                            </form>

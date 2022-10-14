@@ -282,6 +282,8 @@ header
     padding: 1rem 1.5rem;
     width: 24rem;
     border-radius: 0.5rem;
+    overflow-y: scroll;
+    height: 33rem;
 }
 
 .close-button {
@@ -303,10 +305,10 @@ header
 }
 
 .modal-input{
-    width: 100%;
+    width: 95%;
     padding: 8px 8px;
     margin: 8px 0;
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
 }
 
@@ -511,9 +513,25 @@ h3 {
         visibility: hidden;
     }
 
+    
+.modal-content {
+    width: 18rem;
+}
+
+  }
+
+  @media screen and (max-width: 380px){
+
+    
+.modal-content {
+    width: 14rem;
+}
+
   }
     
-  #filters, .department{
+
+    
+  #filters, .department, .pname{
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
@@ -526,6 +544,10 @@ h3 {
     padding-right: 1.5rem;
     margin-left: 0.5rem;
     font-weight: 600;
-    background-color: #e9e8e8;
     outline: none;
+    box-shadow: none !important;
+}
+
+.mozilla #filters {
+    font-weight: normal;    
 }
