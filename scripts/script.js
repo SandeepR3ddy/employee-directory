@@ -542,6 +542,10 @@ var humburger = document.querySelector(".humburger");
 
 var filters = document.querySelector(".filters");
 
+var search  = document.querySelector(".search");
+
+var searchicon = document.querySelector(".search-icon");
+
 humburger.addEventListener("click", function(e) {   
  
         if(filters.classList == "humburger-filters")
@@ -552,6 +556,18 @@ humburger.addEventListener("click", function(e) {
         {
         filters.classList = "humburger-filters";   
         }
+
+        if(search.classList == "search")
+        {
+            search.classList = "search-modified";
+            searchicon.classList.add("search-icon-block");
+        }
+        else{
+            search.classList = "search";
+            searchicon.classList.remove("search-icon-block");    
+        }
+
+
 
 });
 
