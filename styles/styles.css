@@ -146,7 +146,7 @@ header
 .search-icon
 {
     position: absolute;
-    left: 3.6rem;
+    left: 4rem;
     top: 0.4rem;
 }
 
@@ -230,7 +230,7 @@ header
      padding: 0.5rem;
      margin: 1rem 0rem;
      margin-left: 1rem;
-     box-sizing: content-box;
+     /* box-sizing: content-box; */
 
 
     }
@@ -599,7 +599,9 @@ h3 {
         width: fit-content;
         justify-content: space-evenly;
         margin-right: 1rem;
-        width: 15rem;
+        width: 17rem;
+        height: 7rem;
+        box-sizing: border-box;
    }
 
    .employee-cards-outer {
