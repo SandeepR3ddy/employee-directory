@@ -1,27 +1,112 @@
 
-const departmentsList = ['IT(21)',"HR(2)", "MD(1)", "Sales(4)"];
+// localStorage.clear();
 
-const officeList = ['Seattle(1)', 'India(1)'];
-
-const jobtitleList = ['SharePoint Practice Head(1)', '.Net Development Head(2)', 'Recruiting Expert(1)', 'BI Developer(1)', 'Business Analyst(1)'];
-
-var deplist = departmentsList.map(function(department)
+const departmentsList = [
+    {
+        "name": "IT",
+        "count": 6
+    },
+    {
+        "name": "HR",
+        "count": 1
+    },
+    {
+        "name": "UX",
+        "count": 1
+    },
+    {
+        "name": "Sales",
+        "count": 1
+    }
+];
+   
+  if(localStorage.getItem("departmentsListsInLocalStorage") == null)
+  {
+     localStorage.setItem("departmentsListsInLocalStorage", JSON.stringify(departmentsList));
+  }
+  
+  let departmentsListsInLocalStorage = JSON.parse(localStorage.getItem("departmentsListsInLocalStorage"));
+  
+var deplist = departmentsListsInLocalStorage.map(function(department)
 {
-    return '<div class = "departments-name">' + department + '</div>';
+    return '<div class = "departments-name">' + department.name + "(" + department.count + ")" + '</div>';
 }).join(' ');
 
 document.querySelector(".department-list").innerHTML = deplist;
 
-var officelist = officeList.map(function(office)
-{
-    return '<div>' + office + '</div>';
-}).join(' ');
+const officeList = [
+    {
+        "name": "Seattle",
+        "count": 1
+    },
+    {
+        "name": "India",
+        "count": 1
+    }
+];
+if(localStorage.getItem("officeListsInLocalStorage") == null)
+  {
+     localStorage.setItem("officeListsInLocalStorage", JSON.stringify(officeList));
+  }
+  
+  let officeListsInLocalStorage = JSON.parse(localStorage.getItem("officeListsInLocalStorage"));
+  
+  var officelist = officeListsInLocalStorage.map(function(office)
+  {
+      return '<div>' + office.name + "(" + office.count + ")" + '</div>';
+  }).join(' ');
+  
+  document.querySelector(".offices-list").innerHTML = officelist;
+  
 
-document.querySelector(".offices-list").innerHTML = officelist;
+const jobtitleList = [
+    {
+        "name": "SharePoint Practice Head",
+        "count": 1
+    },
+    {
+        "name": "Operations Manager",
+        "count": 1
+    },
+    {
+        "name": "Product Manager",
+        "count": 1
+    },
+    {
+        "name": "Talent Magnet Jr.",
+        "count": 1
+    },
+    {
+        "name": "Lead Engineer Dot Net",
+        "count": 1
+    },
+    {
+        "name": "Network Engineer",
+        "count": 1
+    },
+    {
+        "name": "UI Designer",
+        "count": 1
+    },
+    {
+        "name": "Software Engineer",
+        "count": 1
+    }
+];
 
-var jobtitlelist = jobtitleList.map(function(job)
+if(localStorage.getItem("jobTitlesListsInLocalStorage") == null)
+  {
+    // localStorage.clear();
+     localStorage.setItem("jobTitlesListsInLocalStorage", JSON.stringify(jobtitleList));
+  }
+  
+  let jobTitlesListsInLocalStorage = JSON.parse(localStorage.getItem("jobTitlesListsInLocalStorage"));
+  
+
+
+var jobtitlelist = jobTitlesListsInLocalStorage.map(function(job)
 {
-    return '<div class = "job-titles-list-inner">' + job + '</div>';
+    return '<div class = "job-titles-list-inner">' + job.name + "(" + job.count + ")" + '</div>';
 }).join(' ');
 
 document.querySelector(".job-titles-list").innerHTML = jobtitlelist;
@@ -271,8 +356,6 @@ jobtitles.forEach(function(jobtitle) {
     jobtitle.addEventListener("click", () => {  
 
         val = (jobtitle.textContent).toLowerCase().split("(")[0];
-        
-        console.log(val);
 
         filteredcards = matchcardsfromlocalstorage.filter(function(card){    
          
@@ -476,15 +559,67 @@ submitButton.addEventListener("click", function(e) {
     if(deptvalue == "") {
      
         deptvalue = "IT";
-
+    }
+    if(pnamevalue == "") {
+        pnamevalue = "First Name";
     }
 
-    if(fname.value == "" || lname.value == "" || pnamevalue == "" || desig.value == "" || deptvalue == "" || prof.value == "")
+    if(!fname.value || !lname.value|| !pnamevalue|| !desig.value|| !deptvalue|| !prof.value)
     {
         alert("Please Fill all the fields");
     }
     else
     {
+      
+       departmentsListsInLocalStorage = JSON.parse(localStorage.getItem("departmentsListsInLocalStorage"));
+
+       var obj = departmentsListsInLocalStorage.find(o =>
+       o.name === deptvalue);
+
+       obj.count++;
+
+       localStorage.removeItem("departmentsListsInLocalStorage");
+
+       localStorage.setItem("departmentsListsInLocalStorage", JSON.stringify(departmentsListsInLocalStorage));
+        
+       
+var deplist = departmentsListsInLocalStorage.map(function(department)
+{
+    return '<div class = "departments-name">' + department.name + "(" + department.count + ")" + '</div>';
+}).join(' ');
+
+document.querySelector(".department-list").innerHTML = deplist;
+       
+      jobTitlesListsInLocalStorage = JSON.parse(localStorage.getItem("jobTitlesListsInLocalStorage"));  
+
+        var obj = jobTitlesListsInLocalStorage.find(o=>
+            o.name === desig.value);
+
+            if(obj === undefined)
+            {
+                jobTitlesListsInLocalStorage.push(
+                    {
+                        "name": desig.value,
+                        "count": 1
+                    }
+                )
+            }
+            else
+            {
+                obj.count++;
+            }
+
+            localStorage.removeItem("jobTitlesListsInLocalStorage");
+            
+            localStorage.setItem("jobTitlesListsInLocalStorage", JSON.stringify(jobTitlesListsInLocalStorage));
+
+var jobtitlelist = jobTitlesListsInLocalStorage.map(function(job)
+{
+    return '<div class = "job-titles-list-inner">' + job.name + "(" + job.count + ")" + '</div>';
+}).join(' ');
+
+document.querySelector(".job-titles-list").innerHTML = jobtitlelist;
+
 
         matchcards = JSON.parse(localStorage.getItem("matchcards"));
 
@@ -498,14 +633,14 @@ submitButton.addEventListener("click", function(e) {
                 "src" : url
             });
  
-            localStorage.clear();
+            localStorage.removeItem("matchcards");
              
             localStorage.setItem("matchcards", JSON.stringify(matchcards));
             
 
         fname.value = "";
         lname.value = ""; 
-        pname.value = "";  
+        pname.value = "First Name";  
         desig.value = ""; 
         dept.value = "IT";
         prof.value = "";

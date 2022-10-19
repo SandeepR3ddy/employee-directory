@@ -2,20 +2,23 @@
 body{
     margin-left: 2%;
     margin-right: 2%;
-    font-family: 'Exo', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 header
 {
    display: grid;
    grid-template-columns: 18% 50% 32%;
+   border-bottom: #D3D3D5;
+   border-bottom-style: solid;
+   padding-bottom: 0.5rem;
 
 }
 
 #logo
 {
-    height: 70px;
-    width: 140px;
+    height: 4.375rem;
+    width: 8.75rem;
 }
 
 
@@ -27,14 +30,14 @@ header
 }
 
 #employee-directory-heading{
-    font-size: 4vh;
-    font-family: 'Exo', sans-serif;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
     color: #2abbfd;
 }
 
 #description-directory
 {
-    font-family: 'Exo', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .welcome-outer{
@@ -47,14 +50,16 @@ header
 
 #name
 {
-    font-size: 1.5rem;
+    /* font-size: 23px;
+     */
+     font-size: 1.5rem;
     color: #3f3c3c;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 #welcome{
-    font-size: 4vh;
-    font-family: 'Exo', sans-serif;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
     color: #2abbfd;
 }
 
@@ -99,13 +104,18 @@ header
     align-items: center;
 }
 
-.alphabet-box{
+.user-icon{
+    background-color: #2abbfd;
+    padding: 0.4rem 0.7rem;
+    color: white; 
+}
 
+.alphabet-box{
     background-color: #2abbfd;
     padding: 0.4rem 0.7rem;
     color: white;
-    font-family: 'Exo', sans-serif;
-    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+    /* font-weight: 600; */
 }
 
 .alphabet
@@ -144,10 +154,10 @@ header
 {
     background-color: #69ba00;
     padding: 0.5rem 1.3rem;
-    border-radius: 3px;
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 0.8rem;
 }
 
 .filter-by-preffered-name{
@@ -168,8 +178,8 @@ header
 {
     background-color: #2abbfd;
     padding: 0.8rem 1.3rem;
-    border-radius: 3px;
     color: white;
+    /* font-size: 17px; */
     font-size: 1.1rem;
     font-weight: 600;
     border: none;
@@ -183,20 +193,21 @@ header
 }
 
 .search-box {
-    padding: 5px;
-    padding-left: 25px;
-    outline: none
+    padding: 0.35rem;
+    padding-left: 1.7rem;
+    outline: none;
+    font-size: 0.8rem;
     }
 
 .employee-image {
-    height: 73px;
-    width: 70px;
+    height: 4.563rem;
+    width:4.375rem;
     margin-right: 0.5rem;
 }
 
 .employee-image2 {
-    height:65px;
-    width: 60px;
+    height:4.063rem;
+    width: 3.75rem;
     /* margin-right: 0.5rem; */
 }
 
@@ -218,13 +229,21 @@ header
      background-color: #e9e8e8;
      padding: 0.5rem;
      margin: 1rem 0rem;
-}
+     margin-left: 1rem;
+     box-sizing: content-box;
+
+
+    }
+
 
 .employee-cards-outer {
 
      display: grid;
      grid-template-columns: 25% 25% 25% 25%;
-     margin-top: 2rem;
+     margin-top: 2rem; 
+    border: #d3d3d3;
+    border-style: solid;
+
 }
 
 .employee-details {
@@ -234,12 +253,14 @@ header
      align-items: flex-start;
      justify-content: center;
      margin-right: 1rem;
+     
 }
 
 .employee-name
 {
     font-weight: 600;
     margin-bottom: 3px;
+    font-family: 'Exo';
 }
 
 .icons
@@ -261,7 +282,7 @@ header
 
 .designation , .department-name
 {
-  font-size: 0.8rem;
+  font-size: 0.79rem;
 }
 
 .modal {
@@ -548,6 +569,7 @@ h3 {
     font-weight: 600;
     outline: none;
     box-shadow: none !important;
+    font-size: 0.8rem;
 }
 
 .mozilla #filters {
@@ -563,4 +585,62 @@ h3 {
 .search-icon-block
 {
     display: hidden;
+}
+
+@media screen and (min-width: 1281px) {
+    
+    html{
+        font-size: 18px;
+        }
+
+
+    .employee-card {
+
+        width: fit-content;
+        justify-content: space-evenly;
+        margin-right: 1rem;
+        width: 15rem;
+   }
+
+   .employee-cards-outer {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;  
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+ .employee-image{
+ 
+    margin-right: 1.5rem;
+}
+
+.employee-details{
+    margin-right: 0.5rem;
+}
+
+}
+
+@media screen and (min-width: 1700px) {
+    
+    html{
+        font-size: 22px;
+        }
+
+}
+@media screen and (min-width: 2000px) {
+    
+    html{
+        font-size: 25px;
+        }
+
+}
+
+@media screen and (min-width: 2500px) {
+    
+    html{
+        font-size: 30px;
+        }
+
 }
